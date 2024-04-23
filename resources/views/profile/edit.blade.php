@@ -1,29 +1,77 @@
-@extends('index')
 
-@section('content')
-    <div class="mt-3 space-y-1">
-        <nav class="navbar bg-black">
-            <div class="container-fluid flex">
-                <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">SPACES.</a>
-                <select class="bg-black text-yellow-200 mx-5 rounded border-amber-400 hover:bg-yellow-300" onchange="window.location.href = this.value;">
-                    <option value="">Sandra Arnold</option>
-                    <option value="{{ route('profile.edit') }}">Profile</option>
-                    <option value="{{ route('logout') }}" 
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Log Out
-                    </option>
-                </select>
-                <form id="logout-form" method="POST" action="{{ route('logout') }}" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </nav>
-    </div>
-    <div class="flex  gap-2 justify-between w-100">
-        <img src="{{ asset('image/the-business-journals.webp') }}" class="h-screen w-75" alt="">
-        <p class=" w-100 container m-5 h-100 ">Vous cherchez un espace où travailler vous et votre équipe à Casablanca ? Nos bureaux privés sont idéalement situés en <span class="fs-5 text-yellow-300">plein centre de Casablanca,</span> près de Casa Port et de la Place des Nations Unies. Ils sont soit <span class="fs-5 text-yellow-300">individuels</span>, soit <span class="fs-5 text-yellow-300">multipostes</span> et sont équipés de tout le mobilier de bureau nécessaire à votre activité (tables de travail, fauteuils et armoires/caissons). Ils sont destinés aux <span class="fs-5 text-yellow-300">entreprises ou indépendants</span> qui désirent profiter des <span class="fs-5 text-yellow-300">activités</span> de l’espace et de l’esprit de <span class="fs-5 text-yellow-300">communauté</span> et préserver en même temps la <span class="fs-5 text-yellow-300">confidentialité</span> de leur travail.
-            <span class="fs-5 text-yellow-300 ">Les bureaux privés sont accessibles 7j/7 et pour la durée de votre choix. <br></span>
-            
-            <span class="text-gray-500 ">Vous souhaitez en savoir plus sur nos offres ? Remplissez le formulaire ci-dessous ou contactez-nous au +212 6 62 18 31 73</span></p>
-    </div>
-@endsection
+
+
+<section>
+    <header>
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            {{ __('Profile Information') }}
+        </h2>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            {{ __("Update your account's profile information and email address.") }}
+        </p>
+    </header>
+
+    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+        @csrf
+    </form>
+
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+        @csrf
+        @method('patch')
+
+        <div>
+            <x-input-label for="name" :value="__('Name')" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        </div>
+
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
+            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+
+            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+                <div>
+                    <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
+                        {{ __('Your email address is unverified.') }}
+                        <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                            {{ __('Click here to re-send the verification email.') }}
+                        </button>
+                    </p>
+                    @if (session('status') === 'verification-link-sent')
+                        <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
+                            {{ __('A new verification link has been sent to your email address.') }}
+                        </p>
+                    @endif
+                </div>
+            @endif
+        </div>
+
+        <div class="flex items-center gap-4">
+            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            @if (session('status') === 'profile-updated')
+                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)" class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
+            @endif
+        </div>
+    </form>
+     
+  <form action="/2auth/enable" method="post" class="space-y-6">
+    @csrf
+    @method("PUT")
+    <header>
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            {{ __('Set 2FA ') }}
+        </h2>
+
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            {{ __('Once your account is act ..............., all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+        </p>
+    </header>
+
+    <x-primary-button
+    {{-- ternary condition to switch button text --}}
+        
+    >{{ $user->double_auth ? __('Desactivate 2FA   ') : __('Activate 2FA   ')  }}</x-primary-button>
+
+</form>
+</section>

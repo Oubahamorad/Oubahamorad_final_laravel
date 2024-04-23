@@ -8,6 +8,14 @@
 
     <div class="container-fluid">
         <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">SPACES</a>
+   
+
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="text-white text-2xl mx-3 rounded p-2 text-decoration-none hover:bg-yellow-300">
+                        Register
+                    </a>
+                @endif
+            
        
             </nav>
 
@@ -28,7 +36,7 @@
         <div class="" >
             <x-input-label for="email" :value="__('Email')" class="text-black"/>
             <x-text-input id="email" class="block mt-1 w-full bg-transparent" placeholder="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2 " />
         </div>
 
         <!-- Password -->

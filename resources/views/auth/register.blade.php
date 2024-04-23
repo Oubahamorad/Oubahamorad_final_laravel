@@ -10,16 +10,24 @@
 
             <div class="container-fluid">
                 <a class="navbar-brand text-success text-white mx-5" href="#">SPACES</a>
-               
-                    </nav>
+                @if (Route::has('login'))
+              
+              
+                        <a href="{{ route('login') }}" class="text-white text-2xl mx-3 rounded p-2 text-decoration-none hover:bg-yellow-300">
+                            Login
+                        </a>
 
-    <form method="POST" action="{{ route('register') }}">
+                  
+                    @endauth
+                
+
+    <form method="POST" action="{{ route('register') }}" class="bg-white">
         @csrf
     <div class="flex container gap-5 m-5">
     <img src="{{ asset('image/Co-working.jpg') }}" class="h-[90%] w-[50%]  " alt="">
              
       
-<div class="flex flex-col w-full">
+<div class="flex flex-col w-full bg-white">
         <!-- Name -->
         <div >
             <x-input-label for="name" :value="__('Name')" class="text-black" />
@@ -33,11 +41,11 @@
             <x-text-input id="email" class="block mt-1 w-full  bg-transparent" type="email" name="email" placeholder="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+        
 
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" class="text-black" />
-
             <x-text-input id="password" class="block mt-1 w-full  bg-transparent"
                             type="password"
                             name="password"
