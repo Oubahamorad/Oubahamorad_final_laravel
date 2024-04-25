@@ -3,51 +3,54 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calonder;
+use App\Models\Reserve;
+use Illuminate\Console\Scheduling\Event;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class CalonderController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            $data = Calonder::whereDate('start', '>=', $request->start)
-                ->whereDate('end',   '<=', $request->end)
-                ->get(['id', 'title', 'start', 'end']);
+        return view("reserve");
 
-            return response()->json($data);
-        }
-
-        return view('MyCalaendar');
     }
-    public function store(Request $request)
+    public function show(Reserve $calendar)
     {
-        switch ($request->type) {
-            case 'add':
-                $event = Calonder::create([
-                    'title' => $request->title,
-                    'start' => $request->start,
-                    'end' => $request->end,
-                ]);
-                return response()->json($event);
-                break;
+        //
 
-            case 'update':
-                $event = Calonder::find($request->id)->update([
-                    'title' => $request->title,
-                    'start' => $request->start,
-                    'end' => $request->end,
-                ]);
-                return response()->json($event);
-                break;
+        $events = Reserve::all()->map(function (Reserve $event) {
+            $start = $event->dateStart . " " . $event->timeStart;
+            $end = $event->dateEnd . " " . $event->timeEnd;
+            return [
+                "start" => $start,
+                "end" => $end,
+                "title" => $event->name,
+                "color" => "#000",
 
-            case 'delete':
-                $event = Calonder::find($request->id)->delete();
-                return response()->json($event);
-                break;
 
-            default:
-                break;
-        }
+
+            ];
+        });
+
+        return response()->json([
+            "events" => $events
+        ]);
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Reserve $Reserve)
+    {
+        //
+    }
+
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
 }

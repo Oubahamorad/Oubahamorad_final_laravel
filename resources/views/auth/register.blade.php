@@ -9,11 +9,11 @@
     <nav class="navbar   bg-black">
 
             <div class="container-fluid">
-                <a class="navbar-brand text-success text-white mx-5" href="#">SPACES</a>
+                <a class="navbar-brand text-success text-white mx-5" href="{{ url('/home') }}">SPACES</a>
                 @if (Route::has('login'))
               
               
-                        <a href="{{ route('login') }}" class="text-white text-2xl mx-3 rounded p-2 text-decoration-none hover:bg-yellow-300">
+                        <a href="{{ url('/') }}" class="text-white text-2xl mx-3 rounded p-2 text-decoration-none hover:bg-yellow-300">
                             Login
                         </a>
 
@@ -40,6 +40,19 @@
             <x-input-label for="email" :value="__('Email')" class="text-black"/>
             <x-text-input id="email" class="block mt-1 w-full  bg-transparent" type="email" name="email" placeholder="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        
+        <!-- select role -->
+        <div class="mt-4 ">
+            <x-input-label for="role" :value="__('select')" class="text-black"/>
+        <select name="role" class="block mt-1 w-full rounded  bg-transparent" id="">
+            <option selected disabled  value="">select role</option>
+            @foreach ($roles as $role)
+                  <option value="{{ $role->name  }}">{{ $role->name }}</option>
+            @endforeach
+       
+        </select>
         </div>
         
 

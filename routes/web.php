@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CalonderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,8 +21,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::controller(CalonderController::class)->group(function () {
-    Route::get('/', 'index')->name('event.get');
-    Route::post('/', 'store')->name('event.store');
+    Route::get('/calonder', 'index')->name('event.get');
+    Route::post('/calonder/store', 'store')->name('event.store');
 });
+
+Route::get('/admin',[AdminController::class ,'index'])->middleware('role:admin');
+Route::get('/reserve',[ReserveController::class ,'index'])->name('reserve.index');
+Route::post("/admin" , [AdminController::class , "store"])->name("admin.store");
+Route::get('/session',[StripeController::class ,'session']);
+Route::get('/session',[StripeController::class ,'session'])->name('session');
+
+Route::post("/reserve/store" , [ReserveController::class , "store"]);
+Route::get("/reserve/show" , [ReserveController::class , "show"]);
+
+
+
+// Define other routes...
+
+// Define the success route
+Route::get('/payment/success', [StripeController::class, 'paymentSuccess'])->name('success');
+
+// Define the dashboard or cancel route if not already defined
+// Route::get('/dashboard', [StripeController::class, 'dashboard'])->name('dashboard');
+
+// Add other necessary routes...
 
 require __DIR__.'/auth.php';
