@@ -31,6 +31,16 @@ Route::post("/admin" , [AdminController::class , "store"])->name("admin.store");
 Route::get('/session',[StripeController::class ,'session']);
 Route::get('/session',[StripeController::class ,'session'])->name('session');
 
+Route::delete("/reserve/delete/{reserves}" , [ReserveController::class , "dostroy"])->name('reserve.delete');
+
+Route::put("/reserve/update/{reserves}" , [ReserveController::class , "update"])->name("reserve.update");
+
+
+
+Route::delete("/admin/delete/{admin}" , [AdminController::class , "destroy"])->name('admin.delete');
+
+
+
 Route::post("/reserve/store" , [ReserveController::class , "store"]);
 Route::get("/reserve/show" , [ReserveController::class , "show"]);
 

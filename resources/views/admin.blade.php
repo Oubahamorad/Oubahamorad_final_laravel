@@ -12,6 +12,39 @@
  
     </div>
 </nav>
+
+
+<!-- Your HTML content -->
+<form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data" class="form">
+    @csrf
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Insert name" value="{{ old('name') }}">
+    </div> 
+    <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" name="image" placeholder="Insert Image">
+    </div>
+    <button type="submit" class="mt-4 px-4 py-2 rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400">Insert</button>
+</form>
+{{--  --}}
+<div class="admins-container grid grid-cols-3 gap-4">
+    @foreach ($admins as $admin)
+    <div class="admin-card border border-gray-300 p-4 rounded-md">
+        <h1 class="text-lg font-semibold">{{ $admin->name }}</h1>
+        <img class="mt-4" width="200" src="{{ asset("storage/image/" . $admin->image) }}" alt="{{ $admin->image }}">
+        <!-- Delete form inside the loop for each admin -->
+        <form action="{{ route('admin.delete', ['admin' => $admin->id]) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="mt-4 px-4 py-2 rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400">DELETE</button>
+        </form>
+    </div>
+    @endforeach
+</div>
+
+
+@endsection
 <style>
     /* Form styling */
     form {
@@ -41,7 +74,7 @@
         border-radius: 3px;
         box-sizing: border-box;
     }
-
+/* 
     button[type="submit"] {
         background-color: #4caf50;
         color: white;
@@ -53,7 +86,7 @@
 
     button[type="submit"]:hover {
         background-color: #45a049;
-    }
+    } */
 
     /* List of administrators styling */
     .admins-container {
@@ -80,29 +113,3 @@
         margin-top: 10px;
     }
 </style>
-
-<!-- Your HTML content -->
-<form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data" class="form">
-    @csrf
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Insert name" value="{{ old('name') }}">
-    </div> 
-    <div class="form-group">
-        <label for="image">Image</label>
-        <input type="file" name="image" placeholder="Insert Image">
-    </div>
-    <button type="submit">Insert</button>
-</form>
-
-<div class="admins-container">
-    @foreach ($admins as $admin)
-    <div class="admin-card">
-        <h1>{{ $admin->name }}</h1>
-     
-        <img width="200" src="{{ asset("storage/image/" . $admin->image) }}" alt="{{ $admin->image }}">
-    </div>
-    @endforeach
-</div>
-
-@endsection

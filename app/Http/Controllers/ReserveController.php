@@ -32,7 +32,11 @@ class ReserveController extends Controller
     }
 
 
-  public function show(Reserve $calendar){
+  public function show(Reserve $calendar ,)
+  
+   
+  {
+   
 
         $events = Reserve::all()->map(function (Reserve $event) {
             $start = $event->dateStart . " " . $event->timeStart;
@@ -48,5 +52,35 @@ class ReserveController extends Controller
         return response()->json([
             "events" => $events
         ]);
+    }
+    public function dostroy(Reserve $reserves){
+        $reserves->delete();
+        return back();
+
+    }
+    public function sho(Reserve $reserve){
+        return view("reserve", compact( 'reserve)'));
+    }
+    public function update(Request $request, Reserve $reserve)
+    {
+        $request->validate([
+            "name" => 'required',
+            "dateStart" => 'required',
+            "timeStart" => 'required',
+            "dateEnd" => 'required',
+            "timeEnd" => 'required',
+            "table" => 'required',
+        ]);
+        
+        $reserve->update([
+            $reserve->name => $request->title,
+            $reserve->dateStart => $request->dateStart,
+            $reserve->timeStart => $request->timeStart,
+            $reserve->dateEnd => $request->dateEnd,
+            $reserve->timeEnd => $request->timeEnd,
+            $reserve-> table => $request->table,
+        ]);
+
+        return back();
     }
 }

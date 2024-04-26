@@ -21,10 +21,11 @@
                     @endauth
                 
 
-    <form method="POST" action="{{ route('register') }}" class="bg-white">
+    
+                    <form method="POST" action="{{ route('register') }}" class="bg-white w-100 ">
         @csrf
-    <div class="flex container gap-5 m-5">
-    <img src="{{ asset('image/Co-working.jpg') }}" class="h-[90%] w-[50%]  " alt="">
+    <div class="flex  flex-col lg:flex-row container md:gap-5 md:m-5">
+    <img src="{{ asset('image/Co-working.jpg') }}" class="h-[90%]  md:w-[70%] w-[100%]  " alt="">
              
       
 <div class="flex flex-col w-full bg-white">

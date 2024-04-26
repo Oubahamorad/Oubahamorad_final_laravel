@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Admin;
 use App\Models\Reserve;
 use App\Models\Role;
 use Illuminate\Support\ServiceProvider;
@@ -20,10 +21,13 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    { $resrves =Reserve::all();
+    {
+        $reserves = Reserve::all();
         $roles = Role::all();
-
-        view()->share(['roles '=>$roles] );
-        view()->share(['resrves'=> $resrves]);
+        $admins = Admin::all();  
+     
+        view()->share('admins', $admins);
+        view()->share('roles', $roles);
+        view()->share('reserves', $reserves);
     }
 }
