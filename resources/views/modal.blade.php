@@ -17,7 +17,7 @@
                     <label for="">Event Title</label>
                     <input class="" required name="title" placeholder="Event Title" type="text">
                     <label for="">Start Day</label>
-                    <input name="dateStart" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" id="date-start" type="date">
+                    <input name="dateStart" required  min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" id="date-start" type="date">
                     <label for="">Start time</label>
                     <input name="timeStart" step="1800" required min="08:00:00" max="19:00:00" value="09:30:00" id="time-start" type="time">
                     <label for="">Select Table</label>
@@ -29,10 +29,10 @@
                         <option value="table 4">Table 4</option>
                         <option value="table 5">Table 5</option>
                     </select>
-                    <label for="">End Day</label>
-                    <input name="dateEnd" id="date-end" type="date">
+                    <label   for="">End Day</label>
+                    <input required  name="dateEnd" id="date-end" type="date">
                     <label for="">End time</label>
-                    <input name="timeEnd" id="time-end" type="time">
+                    <input required  name="timeEnd" id="time-end" type="time">
                      <button class="w-f
                 py-3 bg-yellow-300 text-white">Reservation</button>
                 </form>

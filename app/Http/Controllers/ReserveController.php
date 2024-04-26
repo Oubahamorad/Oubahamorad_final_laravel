@@ -61,24 +61,26 @@ class ReserveController extends Controller
     public function sho(Reserve $reserve){
         return view("reserve", compact( 'reserve)'));
     }
-    public function update(Request $request, Reserve $reserve)
+    public function update(Request $request, Reserve $resrve)
     {
-        $request->validate([
-            "name" => 'required',
-            "dateStart" => 'required',
-            "timeStart" => 'required',
-            "dateEnd" => 'required',
-            "timeEnd" => 'required',
-            "table" => 'required',
-        ]);
+        // dd($request);
+        // $request->validate([
+        //     "name" => 'required',
+        //     "dateStart" => 'required',
+        //     "timeStart" => 'required',
+        //     "dateEnd" => 'required',
+        //     "timeEnd" => 'required',
+        //     "table" => 'required',
+        // ]);
         
-        $reserve->update([
-            $reserve->name => $request->title,
-            $reserve->dateStart => $request->dateStart,
-            $reserve->timeStart => $request->timeStart,
-            $reserve->dateEnd => $request->dateEnd,
-            $reserve->timeEnd => $request->timeEnd,
-            $reserve-> table => $request->table,
+        
+        $resrve->update([
+            "name" => $request->title,
+            "dateStart" => $request->dateStart,
+            "timeStart" => $request->timeStart,
+            "dateEnd" => $request->dateEnd,
+            "timeEnd" => $request->timeEnd,
+            "table" => $request->table,
         ]);
 
         return back();

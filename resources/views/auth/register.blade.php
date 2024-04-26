@@ -9,7 +9,7 @@
     <nav class="navbar   bg-black">
 
             <div class="container-fluid">
-                <a class="navbar-brand text-success text-white mx-5" href="{{ url('/home') }}">SPACES</a>
+                <a class="navbar-brand text-success text-white mx-5" href="{{ url('/') }}">SPACES</a>
                 @if (Route::has('login'))
               
               
@@ -45,7 +45,7 @@
 
         
         <!-- select role -->
-        <div class="mt-4 ">
+        {{-- <div class="mt-4 ">
             <x-input-label for="role" :value="__('select')" class="text-black"/>
         <select name="role" class="block mt-1 w-full rounded  bg-transparent" id="">
             <option selected disabled  value="">select role</option>
@@ -54,7 +54,7 @@
             @endforeach
        
         </select>
-        </div>
+        </div> --}}
         
 
         <!-- Password -->
