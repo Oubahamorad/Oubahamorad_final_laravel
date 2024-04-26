@@ -4,7 +4,7 @@
 
 <nav class="navbar bg-black">
     <div class="container-fluid flex flex-col md:flex-row justify-between items-center">
-        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">SPACES</a>
+        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">L’BLA<span class=" text-yellow-300">SSA.</span></a>
         @if (Route::has('login'))
             <div class="flex flex-1 text-white justify-end">
                 <a href="{{ route('login') }}" class="text-white text-lg md:text-2xl mx-3 rounded p-2 text-decoration-none hover:bg-yellow-300">

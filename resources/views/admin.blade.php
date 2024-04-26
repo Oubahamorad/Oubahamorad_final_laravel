@@ -8,7 +8,7 @@
         </h2>
     </x-slot>
     <div class="container-fluid flex">
-        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">SPACES.</a>
+        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">L’BLA <span class=" text-yellow-300">SSA.</span> </a>
  
     </div>
 </nav>

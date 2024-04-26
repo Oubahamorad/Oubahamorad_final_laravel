@@ -7,7 +7,7 @@
 <nav class="navbar   bg-black">
 
     <div class="container-fluid">
-        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/') }}">SPACES</a>
+        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/') }}">L’BLA<span class=" text-yellow-300">SSA.</span> </a>
    
 
                 @if (Route::has('register'))

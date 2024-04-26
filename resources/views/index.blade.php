@@ -19,7 +19,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="lg:flex lg:items-center">
             <a >
-             <h1 class=" text-white text-decoration-none">SPACES.</h1>
+             <h1 class=" text-white text-decoration-none">L’BLA<span class=" text-yellow-300">SSA.</span></h1>
             </a>
           </div>
   
@@ -86,8 +86,8 @@
           </div>
         </div>
   
-        <p class='text-gray-300 text-sm mt-10'>© 2023<a href='https://readymadeui.com/' target='_blank'
-          class="hover:underline mx-1">ReadymadeUI</a>All Rights Reserved.
+        <p class='text-gray-300 text-sm mt-10'>© 2023<a  target='_blank'
+          class="hover:underline mx-1">lionsgeek</a>All Rights Reserved.
         </p>
       </footer>
 </body>

@@ -5,11 +5,12 @@
         </h2>
     </x-slot>
     <div class="container-fluid flex">
-        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">SPACES.</a>
+        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">L’BLASSA</a>
         <select class="bg-black text-yellow-200 mx-5 rounded border-amber-400 hover:bg-yellow-300"
             onchange="window.location.href = this.value;">
             <option value="">Sandra Arnold</option>
             <option value="{{ route('profile.edit') }}">Profile</option>
+            <option value="{{ route('dashboard') }}">dashbord</option>
             <option value="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Log Out

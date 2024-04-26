@@ -2,6 +2,7 @@
 
 
 @section('content')
+<div class="mt-3 space-y-1">
     <nav class="navbar bg-black">
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -9,9 +10,23 @@
             </h2>
         </x-slot>
         <div class="container-fluid flex">
-            <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">SPACES.</a>
-
+            <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">L’BLA<span class=" text-yellow-300">SSA.</span></a>
+            <select class="bg-black text-yellow-200 mx-5 rounded border-amber-400 hover:bg-yellow-300"
+                onchange="window.location.href = this.value;">
+                <option value="">Sandra Arnold</option>
+                <option value="{{ route('profile.edit') }}">Profile</option>
+                <option value="{{ route('dashboard') }}">dashbord</option>
+                <option value="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('home').submit();">
+                    Log Out
+                </option>
+            </select>
+            <form id="logout-form" method="POST" action="{{ route('logout') }}" class="d-none">
+                @csrf
+            </form>
+        </div>
     </nav>
+</div>
     <div class="flex m-5 justify-between container">
         <h1>Cowork :</h1>
       
