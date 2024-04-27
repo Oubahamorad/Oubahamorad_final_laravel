@@ -2,6 +2,17 @@
 
 
 @section('content')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var logoutSelect = document.querySelector('select');
+        logoutSelect.addEventListener('change', function(event) {
+            if (this.value === "{{ route('logout') }}") {
+                event.preventDefault();
+                document.getElementById('logout-form').submit();
+            }
+        });
+    });
+</script>
 <div class="mt-3 space-y-1">
     <nav class="navbar bg-black">
         <x-slot name="header">
@@ -15,7 +26,7 @@
                 onchange="window.location.href = this.value;">
                 <option value="">Sandra Arnold</option>
                 <option value="{{ route('profile.edit') }}">Profile</option>
-                <option value="{{ route('dashboard') }}">dashbord</option>
+                <option value="{{ route('dashboard') }}">Home</option>
                 <option value="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('home').submit();">
                     Log Out
@@ -30,8 +41,8 @@
     <div class="flex m-5 justify-between container">
         <h1>Cowork :</h1>
       
-        <button type="button" title="Edit"  data-bs-toggle="modal" data-bs-target="#exampleModal"
-    class="px-6 py-2 rounded  text-sm tracking-wider font-medium outline-none border-2 border-yellow-400 hover:bg-yellow-300 hover:text-white transition-all duration-300 text-black">Add Reservation</button>
+        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal"
+    class="px-6 py-2 rounded   border-2 border-yellow-400 hover:bg-yellow-300 hover:text-white transition-all duration-300 text-black">Add Reservation</button>
     </button>
 
     </div>

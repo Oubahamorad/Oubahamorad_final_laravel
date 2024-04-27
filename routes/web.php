@@ -24,8 +24,11 @@ Route::controller(CalonderController::class)->group(function () {
     Route::get('/calonder', 'index')->name('event.get');
     Route::post('/calonder/store', 'store')->name('event.store');
 });
-
+Route::middleware(['role:admin'])->group(function () {
+    // Place your admin routes here
+});
 Route::get('/admin',[AdminController::class ,'index'])->middleware('role:admin');
+
 Route::get('/reserve',[ReserveController::class ,'index'])->name('reserve.index');
 Route::post("/admin" , [AdminController::class , "store"])->name("admin.store");
 

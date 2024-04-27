@@ -198,19 +198,12 @@
 
     <div class="flex  flex-col lg:flex-row  container justify-between items-center">
     <div class="mx-5" >
-        @foreach ($admins as $admin)
-            <div>
-                <h4>{{ $admin->name }}</h4>
-                <img src="{{ asset('storage/image/' . $admin->image) }}" width="70%" class="h-80" alt="">
-            </div>
+       
+     
      
 
-        <!-- Button  Bureaux privés-->
-        <button type="button" class="btn btn-outline-warning mx-5 m-2" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">
-            Découvrir
-        </button> 
-         @endforeach
+
+        
 </div> 
 
         <!-- Modal -->
@@ -258,47 +251,7 @@
       
             <!-- Button  Bureaux privés-->
         
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">date réservée</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-
-                            <div class="w-100 bg-white rounded-3xl border-none p-3" id="calendar"></div>
-                            <h3>Un bureau privé et professionnel, accessible à la demande. Parfait quand vous avez besoin de
-                                vous concentrer pour travailler au mieux.</h3>
-                            <div class="flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    strokeWidth={1.5} stroke="currentColor" class="w-10">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                                </svg>
-                                <h5 class="mx-5 my-3">Au mois ou à l'année</h5>
-                            </div>
-                            <div class="flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    strokeWidth={1.5} stroke="currentColor" class="w-10">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                        d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-                                </svg>
-                                <h5 class="mx-5 my-3">Équipes de toute taille</h5>
-                            </div>
-                            <h3 class=" text-lime-600">À partir de MAD 1 890 par personne par mois</h3>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a href="{{ route('reserve.index') }}"><button type="button"
-                                    class="btn btn-outline-warning"> OBTENIR UN DEVIS </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
   
 
@@ -352,7 +305,20 @@
                     </button>
         </a>
                   </div>
-                </div>
+                </div> @foreach ($admins as $admin)
+<div class="bg-gradient-to-b from-indigo-800 to-indigo-600 text-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
+    <img src="{{ asset('storage/image/' . $admin->image) }}" alt="Blog Post 1" class="w-full h-64 object-cover" />
+    <div class="p-6">
+      <h3 class="text-2xl font-semibold mb-2">{{ $admin->name }}</h3>
+      <p class="text-sm opacity-75"> {{$admin->description}}</p>
+      <a href="javascript:void(0);" class="mt-4 inline-block text-blue-200 text-sm hover:underline">   <button type="button" class="btn btn-outline-warning mx-5 m-2" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          Découvrir
+      </button>
+</a>
+    </div>
+  </div>
+ @endforeach
               </div>
             </div>
           </div>

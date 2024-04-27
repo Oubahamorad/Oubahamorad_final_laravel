@@ -21,6 +21,7 @@ class AdminController extends Controller
         request()->validate([
             "name" => "required",
             "image" => "required|mimes:png,jpg,webp|max:2048",
+            "description" => "required",
         ]);
    
         $image = $request->file("image");
@@ -31,6 +32,7 @@ class AdminController extends Controller
         Admin::create([
             "name" => $request->name,
             'image'=>$imageName,
+            "description"=> $request->description
            
 
         ]);

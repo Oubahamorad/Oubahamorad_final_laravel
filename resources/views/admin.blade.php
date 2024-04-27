@@ -1,17 +1,31 @@
 @extends('index')
 
 @section('content')
-<nav class="navbar bg-black">
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-    <div class="container-fluid flex">
-        <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">L’BLA <span class=" text-yellow-300">SSA.</span> </a>
- 
-    </div>
-</nav>
+<div class="mt-3 space-y-1">
+    <nav class="navbar bg-black">
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ __('Dashboard') }}
+            </h2>
+        </x-slot>
+        <div class="container-fluid flex">
+            <a class="navbar-brand text-success text-white mx-5" href="{{ url('/dashboard') }}">L’BLA<span class=" text-yellow-300">SSA.</span></a>
+            <select class="bg-black text-yellow-200 mx-5 rounded border-amber-400 hover:bg-yellow-300"
+                onchange="window.location.href = this.value;">
+                <option value="">Sandra Arnold</option>
+                <option value="{{ route('profile.edit') }}">Profile</option>
+                <option value="{{ route('dashboard') }}">Home</option>
+                <option value="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('home').submit();">
+                    Log Out
+                </option>
+            </select>
+            <form id="logout-form" method="POST" action="{{ route('logout') }}" class="d-none">
+                @csrf
+            </form>
+        </div>
+    </nav>
+</div>
 
 
 <!-- Your HTML content -->
@@ -20,6 +34,10 @@
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" name="name" placeholder="Insert name" value="{{ old('name') }}">
+    </div> 
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="description" placeholder="Insert description" value="{{ old('description') }}">
     </div> 
     <div class="form-group">
         <label for="image">Image</label>
@@ -32,6 +50,7 @@
     @foreach ($admins as $admin)
     <div class="admin-card border border-gray-300 p-4 rounded-md">
         <h1 class="text-lg font-semibold">{{ $admin->name }}</h1>
+        <p class="text-lg font-semibold">{{ $admin->description}}</p>
         <img class="mt-4" width="200" src="{{ asset("storage/image/" . $admin->image) }}" alt="{{ $admin->image }}">
         <!-- Delete form inside the loop for each admin -->
         <form action="{{ route('admin.delete', ['admin' => $admin->id]) }}" method="post">
