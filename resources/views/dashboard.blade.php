@@ -341,28 +341,104 @@
 
     </div>
 {{-- !!!!!!!:::::::::::::::::::::!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< --}}
-    <div class="flex  flex-col lg:flex-row  m-5   gap-2 justify-between ">
-        <img src="{{ asset('image/the-business-journals.webp') }}" class="h-screen w-70" alt="">
-        <p class=" w-100 container lg:m-10   h-100 ">Vous cherchez un espace où travailler vous et votre équipe à Casablanca ?
-            Nos bureaux privés sont idéalement situés en <span class="fs-5 text-yellow-300">plein centre de
-                Casablanca,</span> près de Casa Port et de la Place des Nations Unies. Ils sont soit <span
-                class="fs-5 text-yellow-300">individuels</span>, soit <span
-                class="fs-5 text-yellow-300">multipostes</span> et sont équipés de tout le mobilier de bureau nécessaire à
-            votre activité (tables de travail, fauteuils et armoires/caissons). Ils sont destinés aux <span
-                class="fs-5 text-yellow-300">entreprises ou indépendants</span> qui désirent profiter des <span
-                class="fs-5 text-yellow-300">activités</span> de l’espace et de l’esprit de <span
-                class="fs-5 text-yellow-300">communauté</span> et préserver en même temps la <span
-                class="fs-5 text-yellow-300">confidentialité</span> de leur travail.
-            <span class="fs-5 text-yellow-300 ">Les bureaux privés sont accessibles 7j/7 et pour la durée de votre choix.
-                <br></span>
 
-            <span class="text-gray-500 ">Vous souhaitez en savoir plus sur nos offres ? Remplissez le formulaire ci-dessous
-                ou contactez-nous au +212 6 62 18 31 73</span>
-        </p>
+
+    <div class="testimonial-slider">
+      <div id="carouselExampleControls" class="carousel carousel-dark">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="testimonial-title">
+                <i class="bi bi-quote display-1"></i>
+                <h2 class="fw-bold display-6 my-5">WHAT OUR CUSTOMERS SAY</h2>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="col-md-8">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="card">
+                    <div class="img-wrapper"><img src="https://codingyaar.com/wp-content/uploads/headshot-1-scaled.jpg" class="d-block w-100" alt="..."> </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Aouzal Soumia</h5>
+                      <i class="bi bi-star-fill text-warning pe-1"></i>
+                      <i class="bi bi-star-fill text-warning pe-1"></i>
+                      <i class="bi bi-star-fill text-warning pe-1"></i>
+                      <i class="bi bi-star-fill text-warning pe-1"></i>
+                      <i class="bi bi-star-fill text-warning pe-1"></i>
+                      <p class="card-text">Voilà un excellent espace de co-working au cœur de Marrakech ! Très bien équipé, très bien entretenu et avec un personnel aux petits soins !
+                        J'ai réservé le box insonorisé pour 2h à raison de 50 dirhams par heure (un peu moins de 5€). Le WiFi y est de très bonne qualité (2h de visio non stop avec le bout du monde et aucune coupure ou faiblesse du signal).
+                        Merci pour le café et le jus d'orange préparés avec soin 🙏🏽
+                        Bravo pour ce bel objet et bonne continuation 👏</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper"><img src="https://codingyaar.com/wp-content/uploads/headshot-2-scaled.jpg" class="d-block w-100" alt="..."> </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Avis Perso</h5>
+                      <p class="card-text">It was such a relief finding this place after trying to work remotely from terrible airbnb wifi. Its got a cute cafe as well and 3 phone booths for meetings (its a quiet space so no meetings in shared spaces) i had all day meetings and didn't have an issue finding a free booth. Super friendly staff, lots of desks/plugs and zero issues with wifi (several networks). Would 10/10 recommend if you need a reliable place to get work done!</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper"><img src="https://codingyaar.com/wp-content/uploads/headshot-3-scaled.jpg" class="d-block w-100" alt="..."> </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Sara Cullen-Fong</h5>
+                      <p class="card-text">Ein toller Platz zum Arbeiten im Herzen von Guilez, der einem von dem freundlichen & hilfsbereiten Team vom L'Blassa noch angenehmer gemacht wird.
+                        Das Internet ist schnell & stabil, es gibt Noise-Cancellation-Kabinen zum Telefonieren und Arbeitsplätze zur freien Wahl auf der Fläche.
+                        Wir fanden das Preis-Leistungsverhältnis absolut fair. Auch das Angebot Kaffee, Getränke & Snacks vor Ort ist super...
+                        Wir sind bei unserem nächsten Aufenthalt in Marrakesch gerne wieder hier! :</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper"><img src="https://codingyaar.com/wp-content/uploads/headshot-4-scaled.jpg" class="d-block w-100" alt="..."> </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Amal Eddbali</h5>
+                      <p class="card-text">Très honnêtement, je n y vais pas pour travailler mais pour savourer leur délicieux cappuccino au lait de soja. Meilleur café de Marrakech . Très bon service , endroit propre et très agréable. Je recommande fortement.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper"><img src="https://codingyaar.com/wp-content/uploads/headshot-5-scaled.jpg" class="d-block w-100" alt="..."> </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Ali Simona</h5>
+                      <p class="card-text">Beautiful space! Staff very welcoming and friendly.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card">
+                    <div class="img-wrapper"><img src="https://codingyaar.com/wp-content/uploads/headshot-6-scaled.jpg" class="d-block w-100" alt="..."> </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Aouzal Aziz</h5>
+                      <p class="card-text">Merci pour le bon service et bon relation client, tout est super parfait, je recommande cette très belle place .</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
+
     {{-- !!!!!!!!!!!!!!!!!!!!! --}}
 
-    <style>div#carousel { 
+    {{-- <style>div#carousel { 
         perspective: 1300px; 
         background: #100000; 
         padding-top: 10%; 
@@ -403,7 +479,7 @@
         margin-top: -6rem; 
         border-bottom: none; 
         line-height: 0; }
-      div#carousel ~ span:hover { color: #888; cursor: pointer; }</style>
+      div#carousel ~ span:hover { color: #888; cursor: pointer; }</style> --}}
 
       <script> var angle = 0;
         function galleryspin(sign) { 
@@ -474,4 +550,36 @@ class="grid md:grid-cols-2 items-center overflow-hidden shadow-[0_2px_10px_-3px_
         allowfullscreen></iframe>
 </div>
 </div>
+
+<script>var multipleCardCarousel = document.querySelector("#carouselExampleControls");
+
+  if (window.matchMedia("(min-width: 576px)").matches) {
+    var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+      interval: false
+    });
+    var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+    var cardWidth = $(".carousel-item").width();
+    var scrollPosition = 0;
+    $("#carouselExampleControls .carousel-control-next").on("click", function () {
+      if (scrollPosition < carouselWidth - cardWidth * 3) {
+        scrollPosition += cardWidth;
+        $("#carouselExampleControls .carousel-inner").animate(
+          { scrollLeft: scrollPosition },
+          600
+        );
+      }
+    });
+    $("#carouselExampleControls .carousel-control-prev").on("click", function () {
+      if (scrollPosition > 0) {
+        scrollPosition -= cardWidth;
+        $("#carouselExampleControls .carousel-inner").animate(
+          { scrollLeft: scrollPosition },
+          600
+        );
+      }
+    });
+  } else {
+    $(multipleCardCarousel).addClass("slide");
+  }
+  </script>
 @endsection
