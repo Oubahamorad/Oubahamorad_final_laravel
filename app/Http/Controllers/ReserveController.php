@@ -70,7 +70,7 @@ class ReserveController extends Controller
         //     "timeStart" => 'required',
         //     "dateEnd" => 'required',
         //     "timeEnd" => 'required',
-        //     "table" => 'required',
+        //     "table" => 'required',a
         // ]);
         
         

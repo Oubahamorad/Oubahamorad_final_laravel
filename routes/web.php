@@ -29,15 +29,18 @@ Route::middleware(['role:admin'])->group(function () {
 });
 Route::get('/admin',[AdminController::class ,'index'])->middleware('role:admin');
 
+
 Route::get('/reserve',[ReserveController::class ,'index'])->name('reserve.index');
 Route::post("/admin" , [AdminController::class , "store"])->name("admin.store");
+
 
 Route::get('/session',[StripeController::class ,'session']);
 Route::get('/session',[StripeController::class ,'session'])->name('session');
 
 Route::delete("/reserve/delete/{reserves}" , [ReserveController::class , "dostroy"])->name('reserve.delete');
-
 Route::put("/reserve/update/{resrve}" , [ReserveController::class , "update"])->name("reserve.update");
+
+
 
 
 
